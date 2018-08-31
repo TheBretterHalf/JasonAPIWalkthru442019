@@ -28,6 +28,8 @@ function search(){
         //console.log("Calling inside display results",responseObj)
         const works = responseObj.GoodreadsResponse.search.results.work;
         
+        document.getElementById("results").innerHTML=""
+        
         works.forEach(function(work){
             //console.log(work)
             const author =work.best_book.author.name["#text"]
