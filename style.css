@@ -1,3 +1,7 @@
 #main-container {
     text-align: center;
 }
+
+#results{
+    list-style:none;
+}

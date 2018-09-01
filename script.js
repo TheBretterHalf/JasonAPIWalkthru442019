@@ -34,12 +34,18 @@ function search(){
             const title= work.best_book.title["#text"]
             const imgUrl = work.best_book.image_url["#text"]
             console.log(title, author, imgUrl);
+            
+            const myListitem = document.createElement("li")
+            myListitem.innerHTML = title + "by" + author;
+            document.getElementById("results").appendChild(myListitem)
+            
+            const image = document.createElement("img")
+            image.setAttribute("src", imgUrl)
+            myListitem.appendChild(image)
         })
     }
 }
 
-const myList = document.createElement("li")
-myList.innerHTML="item1"
 //parsedJson is not defined outside of the function
 // Changes XML to JSON
 //Source:https://davidwalsh.name/convert-xml-json
