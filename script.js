@@ -20,22 +20,26 @@ function search(){
         const parser = new DOMParser();//using constructor to create a new object 
         const parsedRes = parser.parseFromString(response, "text/xml") //using a parser to pass through the response to get intended output
         const parsedJson = xmlToJson(parsedRes);//turning object from xml to JSON
-        console.log(parsedJson)
+        //console.log(parsedJson)
+        displayResults(parsedJson)
     })
     //display result as a list
-
-}
     function displayResults(responseObj){
-        console.log("Calling inside display results",responseObj)
-        const works = responseObj.GoodreadsResponse.search.results
+        //console.log("Calling inside display results",responseObj)
+        const works = responseObj.GoodreadsResponse.search.results.work;
         
         works.forEach(function(work){
-            console.log(work)
-            const author
-            const title
-            const imgUrl
+            //console.log(work)
+            const author =work.best_book.author.name["#text"]
+            const title= work.best_book.title["#text"]
+            const imgUrl = work.best_book.image_url["#text"]
+            console.log(title, author, imgUrl);
         })
     }
+}
+
+const myList = document.createElement("li")
+myList.innerHTML="item1"
 //parsedJson is not defined outside of the function
 // Changes XML to JSON
 //Source:https://davidwalsh.name/convert-xml-json
