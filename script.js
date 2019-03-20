@@ -17,15 +17,23 @@ function search(){
     })//if you do not return anything from the first then, you will get undefined for the second
     
     .then(function(response){
-        const parser = new DOMParser();
-        const parsedRes = parser.parseFromString(response, "text/xml")
-        const parsedJson = xmlToJson(parsedRes);
+        const parser = new DOMParser();//using constructor to create a new object 
+        const parsedRes = parser.parseFromString(response, "text/xml") //using a parser to pass through the response to get intended output
+        const parsedJson = xmlToJson(parsedRes);//turning object from xml to JSON
         console.log(parsedJson)
     })
     //display result as a list
-    
-}
 
+}
+    function displayResults(responseObj){
+        console.log("Calling inside display results",responseObj)
+        const works = responseObj.GoodreadsResponse.search.results
+        
+        works.forEach(function(work){
+            console.log(work)
+        })
+    }
+//parsedJson is not defined outside of the function
 // Changes XML to JSON
 //Source:https://davidwalsh.name/convert-xml-json
 function xmlToJson(xml) {
