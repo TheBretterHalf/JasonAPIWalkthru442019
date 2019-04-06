@@ -31,6 +31,9 @@ function search(){
         
         works.forEach(function(work){
             console.log(work)
+            const author
+            const title
+            const imgUrl
         })
     }
 //parsedJson is not defined outside of the function
